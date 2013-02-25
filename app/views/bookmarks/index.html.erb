@@ -1,0 +1,31 @@
+<h1>View Bookmarks</h1>
+
+<table border="1" width="800px">
+  <tr>
+    <th>Url</th>
+    <th>Name</th>
+    <th>Date saved</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookmarks.each do |bookmark| %>
+  <tr>
+    <td><%= bookmark.url %></td>
+    <td><%= bookmark.name %></td>
+    <td><%= bookmark.date_saved %></td>
+    <td><%= link_to 'Show', bookmark %></td>
+    <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
+    <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+
+<%= link_to '<button type="button">New Bookmark</button>'.html_safe, new_bookmark_path %>
+
+
